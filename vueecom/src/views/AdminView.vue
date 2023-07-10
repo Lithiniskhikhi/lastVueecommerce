@@ -37,11 +37,13 @@
         </div>
     </div> -->
     <h1 class="text-decoration-underline text-center">Admin</h1>
-        <!-- <div class="table-responsive"> -->
-          <table id="tablecon" class="tablecon text-center text-white w-100">
+       
+    
+    <!-- <div class="table-responsive"> -->
+          <table id="tablecon" class="tablecon text-center text-black w-100">
             <thead class="tablecont">
               <tr>
-              <th>ID</th>
+              <th >ID</th>
               <th>Name</th>
               <th>Image</th>
               <th>Detail</th>
@@ -50,13 +52,13 @@
               <th>Delete</th>
             </tr>
             </thead>
-            <tbody class="tablecontent" v-for="item in products" style="width: 18rem" :key="item.id">
+            <tbody class="tablecontent" v-for="data in Music" style="width: 18rem" :key="data.id">
                 <tr>
-            <th scope="row">{{ item.ID }}</th>
-            <td>{{ item.title }}</td>
-            <td><img :src='manga.picture' style="width:5rem;"></td>
-            <td>{{ manga.description }}</td>
-            <td>R{{ manga.price }}</td>
+            <th scope="row">{{ data.id }}</th>
+            <td>{{ data.name }}</td>
+            <td><img :src='data.picture' style="width:5rem;"></td>
+            <td>{{ data.genre }}</td>
+            <td>R{{ data.price }}</td>
             <!-- Button trigger modal -->
             <button style=" border: none;" id="editbtn" type="button" data-bs-toggle="modal" data-bs-target="#editModal${item.id}">
             <i class="bi bi-pencil"></i>
@@ -95,12 +97,12 @@
     <script>
            export default {
             computed:{
-                products(){
-                    return this.$store.state.products
+                Music(){
+                    return this.$store.state.Music
                 }
             },
             mounted(){
-                this.$store.dispatch('fetchProducts')
+                this.$store.dispatch('fetchMusic')
             }
         }
     </script>
